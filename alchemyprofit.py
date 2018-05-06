@@ -9,7 +9,10 @@ def dict_factory(cursor, row):
 dbconn = sqlite3.connect("db/wow_herbalism_profit.db")
 dbconn.row_factory = dict_factory
 c = dbconn.cursor()
-profitlist = c.execute("select c.name,c.price,sum(cxr.total) as componentprice from craftables c left join (select idcraftable, idreagent, name, quantity * price as total from craftablesxreagents cx left join reagents r on cx.idreagent = r.id) cxr on c.id = cxr.idcraftable group by c.name,c.price").fetchall()
+profitlist = c.execute("select c.name,c.price,sum(cxr.total) as cprice from craftables c left join (select idcraftable, idreagent, name, quantity * price as total from craftablesxreagents cx left join reagents r on cx.idreagent = r.id) cxr on c.id = cxr.idcraftable group by c.name,c.price").fetchall()
 dbconn.commit()
 dbconn.close()
-print(profitlist)
+
+with open("result.csv", "w") as f:
+    for p in profitlist:
+        f.write("{};{};{}\n".format(p["name"], p["price"], p["cprice"]).replace(".",","))
