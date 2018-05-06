@@ -5,7 +5,7 @@ def dict_factory(cursor, row):
     for idx, col in enumerate(cursor.description):
         d[col[0]] = row[idx]
     return d
-    
+
 dbconn = sqlite3.connect("db/wow_herbalism_profit.db")
 dbconn.row_factory = dict_factory
 c = dbconn.cursor()
