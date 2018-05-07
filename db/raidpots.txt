@@ -1,0 +1,38 @@
+9	Elixir of Fortitude
+9	Elixir of Poison Resistance
+9	Flask of the Titans
+9	Greater Arcane Protection Potion
+9	Greater Fire Protection Potion
+9	Greater Frost Protection Potion
+9	Greater Nature Protection Potion
+9	Greater Shadow Protection Potion
+9	Limited Invulnerability Potion
+9	Major Healing Potion
+9	Major Rejuvenation Potion
+9	Oil of Immolation
+9	Restorative Potion
+
+6	Mageblood Potion
+6	Major Mana Potion
+
+4	Flask of Distilled Wisdom
+4	Elixir of Giants
+4	Elixir of Greater Agility
+4	Elixir of the Mongoose
+
+3	Free Action Potion
+3	Living Action Potion
+
+2	Elixir of Greater Firepower
+2	Flask of Supreme Power
+2	Gift of Arthas
+2	Greater Arcane Elixir
+2	Major Troll's Blood Potion
+2	Mighty Rage Potion
+
+1	Elixir of Frost Power
+1	Elixir of Shadow Power
+1	Elixir of Superior Defense
+1	Frost Oil
+1	Greater Stoneshield Potion
+1	Shadow Oil

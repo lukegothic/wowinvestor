@@ -1,0 +1,129 @@
+<html>
+<head>
+
+</head>
+<body>
+  <select id="props" multiple="multiple"></select>
+  <div id="classeswprops"></div>
+  <script>
+  var cls = {
+    "mage": [
+      "Cloth wearer",
+      "Easy to level",
+      "Strong utility",
+      "Strong control",
+      "Good for farming gold",
+      "Needs to respecialize frequently",
+      "Can make portals to cities",
+      "Can conjure food and drink"
+    ],
+    "warlock": [
+      "Cloth wearer",
+      "Pet Class (Summons demons)",
+      "Easy in PvE",
+      "Easy to level",
+      "Free mount (At level 40)",
+      "Strong sustain",
+      "Strong PvP control",
+      "Can summon party members"
+    ],
+    "priest": [
+      "Cloth wearer",
+      "Preferred healer in dungeons",
+      "Easy to find dungeon groups",
+      "Strong debuff removal",
+      "Unique spells for each race"
+    ],
+    "druid": [
+      "Leather wearer",
+      "Easy to level",
+      "Uses multiple casting resources",
+      "Can be any role",
+      "Shape-shifting gameplay",
+      "Can turn invisible with stealth",
+      "Powerful cooldowns"
+    ],
+    "rogue": [
+      "Leather wearer",
+      "Can turn invisible with stealth",
+      "‘Energy’ casting resource",
+      "Can pick locked doors/chests",
+      "Can disarm traps",
+      "Can pickpocket NPCs",
+      "Can brew weapon poisons",
+      "Good for farming gold",
+      "Very strong in PvP control",
+      "Very strong in 1v1 PvP",
+      "Engaging PvE rotation"
+    ],
+    "hunter": [
+      "Mail wearer",
+      "Pet class (Tames beasts)",
+      "Easy to level",
+      "Complicated PvE rotation",
+      "Low PvE damage",
+      "Very strong in 1v1 PvP",
+      "Good for farming gold",
+      "Can place traps"
+    ],
+    "shaman": [
+      "Mail wearer",
+      "Horde exclusive",
+      "Can remove enemy buffs",
+      "Powerful buffs through totems",
+      "Strong PvP burst",
+      "High natural defenses",
+      "Can self-resurrect"
+    ],
+    "paladin": [
+      "Plate wearer",
+      "Easy to level",
+      "Alliance exclusive",
+      "Powerful buffs",
+      "Free mount (At level 40)",
+      "Powerful PvP healer",
+      "Strong defensive abilities",
+      "Inappropriate for tanking raids",
+      "Very capable dungeon tank"
+    ],
+    "warrior": [
+      "Plate wearer",
+      "Hard to level",
+      "‘Rage’ casting resource",
+      "Foremost tanking choice",
+      "Group/Gear dependant in PvP",
+      "Engaging PvE rotation",
+      "Easy to find dungeon groups"
+    ]
+  };
+  var propslist = document.getElementById("props");
+  var classeswprops = document.getElementById("classeswprops");
+  var allprops = [];
+  for (c in cls) {
+    var cl = cls[c];
+    for (var p = 0; p < cl.length; p++) {
+      var prop = cl[p];
+      if (allprops.indexOf(prop) === -1) {
+        allprops.push(prop);
+      }
+    }
+  }
+  allprops.sort();
+  propslist.appendChild(new Option("", -1));
+  for (var p = 0; p < allprops.length; p++) {
+    propslist.appendChild(new Option(allprops[p], p));
+  }
+  propslist.addEventListener("change", function(e) {
+    classeswprops.innerHTML = "";
+    var v = propslist.value;
+    var n = allprops[parseInt(v)];
+    for (c in cls) {
+      var cl = cls[c];
+      if (cl.indexOf(n) !== -1) {
+        classeswprops.innerHTML += c + "<br />"
+      }
+    }
+  });
+  </script>
+</body>
+</html>
