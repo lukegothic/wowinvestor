@@ -1,99 +1,99 @@
 usage;name;ahprice;comprice;profit
-9;Elixir of Fortitude;55;20,11;34,89
-9;Elixir of Poison Resistance;51;22,71;28,29
-9;Flask of the Titans;10000;6018,1;3981,9
-9;Greater Arcane Protection Potion;;104,5;-104,5
-9;Greater Fire Protection Potion;280;54,5;225,5
-9;Greater Frost Protection Potion;;54,5;-54,5
-9;Greater Nature Protection Potion;;54,5;-54,5
-9;Greater Shadow Protection Potion;400;99,42;300,58
-9;Limited Invulnerability Potion;196;121,17;74,83
-9;Major Healing Potion;88,86;64,5;24,36
-9;Major Rejuvenation Potion;;152;-152
-9;Oil of Immolation;29;19,25;9,75
-9;Restorative Potion;90;44,25;45,75
-6;Mageblood Potion;;124,5;-124,5
-6;Major Mana Potion;110;114,5;-4,5
-4;Elixir of Giants;51;66,5;-15,5
-4;Elixir of Greater Agility;20;19,25;0,75
-4;Elixir of the Mongoose;280;218,5;61,5
-4;Flask of Distilled Wisdom;9000;4954,5;4045,5
-3;Free Action Potion;91;59,712;31,288
-3;Living Action Potion;;192,5;-192,5
 2;Elixir of Greater Firepower;None;28,248;#¡VALOR!
-2;Flask of Supreme Power;7750;5274,5;2475,5
 2;Gift of Arthas;None;25,25;#¡VALOR!
-2;Greater Arcane Elixir;155;121,5;33,5
-2;Major Troll's Blood Potion;;161,5;-161,5
-2;Mighty Rage Potion;150;175,5;-25,5
 1;Elixir of Frost Power;None;8,59;#¡VALOR!
-1;Elixir of Shadow Power;130;264,51;-134,51
-1;Elixir of Superior Defense;150;50,22;99,78
-1;Frost Oil;60;14,5;45,5
-1;Greater Stoneshield Potion;;75,58;-75,58
-1;Shadow Oil;145;74,92;70,08
-;Arcane Elixir;20;29,25;-9,25
-;Blackmouth Oil;65;28,036;36,964
-;Catseye Elixir;9,5;13,75;-4,25
-;Discolored Healing Potion;1,32;1,136;0,184
-;Dreamless Sleep Potion;54,5;19,5;35
-;Elixir of Agility;17;13,39;3,61
 ;Elixir of Brute Force;None;218,5;#¡VALOR!
-;Elixir of Defense;16,67;13,64;3,03
-;Elixir of Demonslaying;175;148,17;26,83
 ;Elixir of Detect Demon;None;118,5;#¡VALOR!
-;Elixir of Detect Lesser Invisibility;5;5,97;-0,97
-;Elixir of Detect Undead;6;10,25;-4,25
-;Elixir of Dream Vision;39;19,5;19,5
-;Elixir of Firepower;3;6,892;-3,892
-;Elixir of Giant Growth;3,2;9,096;-5,896
-;Elixir of Greater Defense;10;20,11;-10,11
-;Elixir of Greater Intellect;14;21,47;-7,47
-;Elixir of Greater Water Breathing;84;21,14;62,86
-;Elixir of Lesser Agility;12;17,36;-5,36
-;Elixir of Lion's Strength;1,4;0,596;0,804
-;Elixir of Minor Agility;14,5;7,116;7,384
-;Elixir of Minor Defense;0,5;0,196;0,304
-;Elixir of Minor Fortitude;0,35;1,096;-0,746
-;Elixir of Ogre's Strength;3;1,54;1,46
-;Elixir of Water Breathing;56,5;59,388;-2,888
 ;Elixir of Waterwalking;None;30,36;#¡VALOR!
-;Elixir of Wisdom;2,5;14,306;-11,806
-;Elixir of the Sages;244;124,5;119,5
 ;Fire Oil;None;2,916;#¡VALOR!
-;Fire Protection Potion;72,22;15,276;56,944
 ;Flask of Chromatic Resistance;None;5424,5;#¡VALOR!
 ;Flask of Petrification;None;5285,3;#¡VALOR!
-;Frost Protection Potion;50;13,24;36,76
+4;Flask of Distilled Wisdom;9000;4954,5;4045,5
+9;Flask of the Titans;10000;6018,1;3981,9
+2;Flask of Supreme Power;7750;5274,5;2475,5
+9;Greater Shadow Protection Potion;400;99,42;300,58
+9;Greater Fire Protection Potion;280;54,5;225,5
+;Elixir of the Sages;244;124,5;119,5
+;Invisibility Potion;200;96,17;103,83
+1;Elixir of Superior Defense;150;50,22;99,78
+;Stonescale Oil;100;20,36;79,64
+9;Limited Invulnerability Potion;196;121,17;74,83
+1;Shadow Oil;145;74,92;70,08
+;Elixir of Greater Water Breathing;84;21,14;62,86
+4;Elixir of the Mongoose;280;218,5;61,5
 ;Ghost Dye;239;179,84;59,16
 ;Goblin Rocket Fuel;70;12,36;57,64
+;Fire Protection Potion;72,22;15,276;56,944
+9;Restorative Potion;90;44,25;45,75
+1;Frost Oil;60;14,5;45,5
+;Blackmouth Oil;65;28,036;36,964
+;Frost Protection Potion;50;13,24;36,76
+;Dreamless Sleep Potion;54,5;19,5;35
+9;Elixir of Fortitude;55;20,11;34,89
+2;Greater Arcane Elixir;155;121,5;33,5
+3;Free Action Potion;91;59,712;31,288
+9;Elixir of Poison Resistance;51;22,71;28,29
+;Elixir of Demonslaying;175;148,17;26,83
+9;Major Healing Potion;88,86;64,5;24,36
+;Superior Mana Potion;65,55;44,5;21,05
+;Elixir of Dream Vision;39;19,5;19,5
 ;Great Rage Potion;19,6;2,34;17,26
-;Greater Dreamless Sleep Potion;;46;-46
+;Shadow Protection Potion;30;16,06;13,94
+;Lesser Invisibility Potion;24;14;10
+9;Oil of Immolation;29;19,25;9,75
+;Magic Resistance Potion;20;11,47;8,53
+;Minor Magic Resistance Potion;19;10,846;8,154
+;Elixir of Minor Agility;14,5;7,116;7,384
+;Mighty Troll's Blood Potion;10;2,74;7,26
+;Swiftness Potion;20;14,036;5,964
+;Strong Troll's Blood Potion;20;15,12;4,88
+;Nature Protection Potion;10;5,64;4,36
 ;Greater Healing Potion;7;3,06;3,94
+;Elixir of Agility;17;13,39;3,61
+;Superior Healing Potion;14,65;11,47;3,18
+;Elixir of Defense;16,67;13,64;3,03
+;Mana Potion;7,16;4,34;2,82
+;Elixir of Ogre's Strength;3;1,54;1,46
+;Elixir of Lion's Strength;1,4;0,596;0,804
+4;Elixir of Greater Agility;20;19,25;0,75
+;Elixir of Minor Defense;0,5;0,196;0,304
+;Discolored Healing Potion;1,32;1,136;0,184
+;Minor Healing Potion;0,14;0,216;-0,076
+;Weak Troll's Blood Potion;0,97;1,096;-0,126
+;Minor Mana Potion;0,2;0,386;-0,186
+;Minor Rejuvenation Potion;0,4;0,676;-0,276
+;Elixir of Minor Fortitude;0,35;1,096;-0,746
+;Elixir of Detect Lesser Invisibility;5;5,97;-0,97
+;Rage Potion;6;8,036;-2,036
+;Lesser Mana Potion;0,99;3,586;-2,596
+;Elixir of Water Breathing;56,5;59,388;-2,888
 ;Greater Mana Potion;9;12,08;-3,08
 ;Healing Potion;4,5;7,74;-3,24
 ;Holy Protection Potion;3,75;7,416;-3,666
-;Invisibility Potion;200;96,17;103,83
+;Elixir of Firepower;3;6,892;-3,892
+;Catseye Elixir;9,5;13,75;-4,25
+;Elixir of Detect Undead;6;10,25;-4,25
+6;Major Mana Potion;110;114,5;-4,5
+;Elixir of Lesser Agility;12;17,36;-5,36
+;Elixir of Giant Growth;3,2;9,096;-5,896
 ;Lesser Healing Potion;1;7,216;-6,216
-;Lesser Invisibility Potion;24;14;10
-;Lesser Mana Potion;0,99;3,586;-2,596
+;Elixir of Greater Intellect;14;21,47;-7,47
+;Arcane Elixir;20;29,25;-9,25
+;Elixir of Greater Defense;10;20,11;-10,11
+;Elixir of Wisdom;2,5;14,306;-11,806
+4;Elixir of Giants;51;66,5;-15,5
 ;Lesser Stoneshield Potion;7,79;30,11;-22,32
-;Magic Resistance Potion;20;11,47;8,53
-;Mana Potion;7,16;4,34;2,82
-;Mighty Troll's Blood Potion;10;2,74;7,26
-;Minor Healing Potion;0,14;0,216;-0,076
-;Minor Magic Resistance Potion;19;10,846;8,154
-;Minor Mana Potion;0,2;0,386;-0,186
-;Minor Rejuvenation Potion;0,4;0,676;-0,276
-;Nature Protection Potion;10;5,64;4,36
-;Purification Potion;;154,5;-154,5
-;Rage Potion;6;8,036;-2,036
-;Shadow Protection Potion;30;16,06;13,94
-;Stonescale Oil;100;20,36;79,64
-;Strong Troll's Blood Potion;20;15,12;4,88
-;Superior Healing Potion;14,65;11,47;3,18
-;Superior Mana Potion;65,55;44,5;21,05
-;Swiftness Potion;20;14,036;5,964
+2;Mighty Rage Potion;150;175,5;-25,5
 ;Swim Speed Potion;5;35,072;-30,072
-;Weak Troll's Blood Potion;0,97;1,096;-0,126
 ;Wildvine Potion;22;64,5;-42,5
+;Greater Dreamless Sleep Potion;;46;-46
+9;Greater Frost Protection Potion;;54,5;-54,5
+9;Greater Nature Protection Potion;;54,5;-54,5
+1;Greater Stoneshield Potion;;75,58;-75,58
+9;Greater Arcane Protection Potion;;104,5;-104,5
+6;Mageblood Potion;;124,5;-124,5
+1;Elixir of Shadow Power;130;264,51;-134,51
+9;Major Rejuvenation Potion;;152;-152
+;Purification Potion;;154,5;-154,5
+2;Major Troll's Blood Potion;;161,5;-161,5
+3;Living Action Potion;;192,5;-192,5
