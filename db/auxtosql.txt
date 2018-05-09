@@ -1,0 +1,11 @@
+var b = [];
+for (i in a) {
+	var key = i.split(":");
+	var val = a[i].split("#");
+	b.push({
+		entry: key[0],
+		mod: key[1],
+		price: val[1] || val[2].split("@")[0]
+	});
+}
+b.map(x => `('${x.entry}','${x.mod}','${x.price}')`).join(",")

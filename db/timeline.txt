@@ -1,0 +1,17 @@
+5 - MC,ON
+6 - DM,AZ,KZ
+
+7 - EI -> epic mnt lock
+8 - AV
+9 - BWL,DF
+10 - SL
+
+11 - DS1/2
+12 - ZG
+1 - DG
+2 - AD
+2 - AQ WE
+4 - AQ
+7 - SCG
+8 - NX
+
