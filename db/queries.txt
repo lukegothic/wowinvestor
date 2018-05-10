@@ -13,9 +13,9 @@ select
 	c.entry,
 	c.name,
 	c.maxlevel,
-	sum(loot.ChanceOrQuestChance * case when loot.minCountOrRef + loot.maxcount < 0 then 0 else loot.minCountOrRef + loot.maxcount end / 2 * cast((case when ah.price is not null then ah.price else i.sellprice end) as integer))/100 as wealth 
-	from creature_template c 
-	left join creature_loot_template loot on c.entry = loot.entry 
+	sum(loot.ChanceOrQuestChance * case when loot.minCountOrRef + loot.maxcount < 0 then 0 else loot.minCountOrRef + loot.maxcount end / 2 * cast((case when ah.price is not null then ah.price else i.sellprice end) as integer))/100 as wealth
+	from creature_template c
+	left join creature_loot_template loot on c.entry = loot.entry
 	inner join item_template i on loot.item = i.entry
 	left join item_ahprices ah on i.entry = ah.entry
 where c.rank = '0' group by c.entry order by wealth desc
@@ -35,13 +35,36 @@ where c.name = 'Wild Gryphon' order by cast(loot.ChanceOrQuestChance as numeric)
 
 -- profit de craftables yuhuuu
 
-select 
-i.name, ah.price, sum((case when ah2.price is not null then ah2.price else i2.BuyPrice / i2.BuyCount end) * craft.quantity) as componentprice
-from item_template i 
-left join luke_item_ahprices ah on i.entry = ah.entry 
-left join luke_item_crafting craft on i.entry = craft.entry 
-left join luke_item_ahprices ah2 on ah2.entry = craft.childentry 
-left join item_template i2 on craft.childentry = i2.entry
-where i.entry in (select entry from luke_item_crafting)
+select
+crafted.profession, i.name, ah.price, sum((case when ah2.price is not null then ah2.price else i2.BuyPrice / i2.BuyCount end) * craft.quantity / crafted.quantity) as componentprice
+from item_template i
+left join luke_item_ahprices ah on i.entry = ah.entry
+left join luke_item_crafting_reagents craft on i.entry = craft.entry
+left join luke_item_crafting crafted on craft.entry = crafted.entry
+left join luke_item_ahprices ah2 on ah2.entry = craft.reagent
+left join item_template i2 on craft.reagent = i2.entry
+where i.entry in (select entry from luke_item_crafting_reagents)
 group by i.name
-order by i.name
+order by crafted.profession, i.name
+
+
+
+-- recetas limitadas
+
+select
+	i.entry,
+	i.name,
+	n.maxcount,
+	n.incrtime / 60 as rtime,
+	i.BuyPrice,
+	c.name as seller,
+	ah.price
+from
+	npc_vendor n
+	left join item_template i on n.item = i.entry
+	left join creature_template c on n.entry = c.entry
+	left join luke_item_ahprices ah on n.item = ah.entry
+where
+	n.maxcount <> '0'
+order by
+	rtime desc
