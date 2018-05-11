@@ -40,7 +40,7 @@ data = c.execute("""select
 	i.name,
     ah.price,
     i.BuyPrice,
-    n.incrtime / 60 as rtime,
+    n.incrtime as rtime,
 	n.maxcount,
 	c.name as seller
 from
