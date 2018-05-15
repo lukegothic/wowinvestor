@@ -68,3 +68,33 @@ where
 	n.maxcount <> '0'
 order by
 	rtime desc
+
+
+
+--disenchant vs precioventa
+
+	select
+		i.entry,
+		i.name,
+		i.Quality,
+		i.ItemLevel,
+		d.entry,
+		ah.price,
+		d.avgprice
+	from item_template i left join (select
+		d1.entry,
+		case when d1.ChanceOrQuestChance = '0' then (select 100-sum(cast(d1.ChanceOrQuestChance as numeric)) from disenchant_loot_template d2 where d1.entry = d2.entry)
+		else cast(d1.ChanceOrQuestChance as numeric)
+		end * cast (price as integer) / 100 * (cast(d1.minCountOrRef as numeric) + cast(d1.maxCount as numeric)) / 2.0 as avgprice from disenchant_loot_template d1 left join luke_item_ahprices on item = luke_item_ahprices.entry group by d1.entry) d on i.DisenchantID = d.entry
+	left join luke_item_ahprices ah on i.entry = ah.entry
+	where i.DisenchantID <> "0" --and i.name = 'Green Lens'
+	group by i.entry
+	order by cast(i.ItemLevel as integer)
+
+
+	--select i.name, ah.price from item_template i left join luke_item_ahprices ah on i.entry = ah.entry where BagFamily = '7' and Material = '2'
+
+
+--- PETS
+select * from item_template where spellid_1 in ('4055','30156','30152','28960','28871','28740','28739','28738','28505','28487','27570','27241','26972','26537','26536','26534','26533','26530','26529','26468','26045','26010','25849','25162','25018','24990','24989','24988','24987','24986','24985','24939','24696','23811','23531','23530','23432','23431','23430','23429','23428','23013','23012','22567','19772','17709','17708','17707','17567','16450','15999','15648','15067','15049','15048','13548','12243','10721','10720','10719','10718','10717','10716','10715','10714','10713','10712','10711','10710','10709','10708','10707','10706','10705','10704','10703','10702','10701','107','10699','10698','10697','10696','10695','10688','10687','10686','10685','10684','10683','10682','10681','10680','10679','10678','10677','10676','10675','10674','10673')
+order by name
