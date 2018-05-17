@@ -1,0 +1,60 @@
+<html>
+<head>
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.3.1/dist/leaflet.css" integrity="sha512-Rksm5RenBEKSKFjgI3a41vrjkw4EVPlJ3+OiI65vTjIdo9brlAacEuKOiQ5OFh7cOI1bkDwLqdLw3Zg0cRJAAQ==" crossorigin=""/>
+  <script src="https://unpkg.com/leaflet@1.3.1/dist/leaflet.js" integrity="sha512-/Nsx9X4HebavoBvEBuyp3I7od5tA0UzAxs+j83KgC8PU0kgB4XiK4Lfe4y4cgBtaRJQEIFCW+oC506aPT2L1zw==" crossorigin=""></script>
+</head>
+<body>
+  <ul id="clist"></ul>
+  <div id="map" style="height:400px;width:600px"></div>
+  <script>
+    var map = L.map('map', {
+      crs: L.CRS.Simple,
+      minZoom: -10
+    });
+    var bounds = [[-17066,-17066], [17066,17066]];
+    var image = L.imageOverlay('WorldmapOfWarcraft_RC3_sqr.jpg', bounds).addTo(map);
+    map.fitBounds(bounds);
+    // x,y
+    // invertir la Y siempre
+    // ¿por que tengo que hacer esto?
+    /*
+    L.marker([-6376.69+m0fx,3563.98+m0fy]).addTo(map).bindPopup('burning exile');
+    L.marker([-6335.96+m0fx,3563.72+m0fy]).addTo(map).bindPopup('doc greg victor');
+    L.marker([-6147.18+m0fx,3413.65+m0fy]).addTo(map).bindPopup('berserker');
+    L.marker([-6494.85+m0fx,3218.53+m0fy]).addTo(map).bindPopup('shadow hunter');
+    */
+  </script>
+  <script>
+    var adj = [{"x":9550,"y":8050}, {"x":4100,"y":-10650}];
+    function marker(mapid,x,y) {
+      return L.marker([x+adj[mapid].x,y+adj[mapid].y]);
+    }
+    var markers = L.featureGroup().addTo(map);
+    function loadCreatureSpawns(spawns) {
+      markers.remove();
+      for (var s = 0, spawn = spawns[s]; s < spawns.length; spawn = spawns[++s]) {
+        markers.addLayer(marker(parseInt(spawn["map"]),parseInt(spawn["position_x"]),parseInt(spawn["position_y"]))).addTo(map);
+      }
+      map.fitBounds(markers.getBounds());
+    }
+    var oReq = new XMLHttpRequest();
+    oReq.addEventListener("load", function() {
+      var clist = document.getElementById("clist");
+      var npcs = JSON.parse(this.responseText);
+      for (var n = 0; n < npcs.length; n++) {
+        (function() {
+          var npc = npcs[n];
+          var li = document.createElement("li");
+          li.innerHTML = npc["Name"];
+          li.addEventListener("click", function() {
+            loadCreatureSpawns(npc["spawns"]);
+          });
+          clist.appendChild(li)
+        })();
+      }
+    });
+    oReq.open("GET", "npcspawns.json");
+    oReq.send();
+  </script>
+</body>
+</html>
