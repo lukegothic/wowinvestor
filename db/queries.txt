@@ -98,3 +98,94 @@ order by
 --- PETS
 select * from item_template where spellid_1 in ('4055','30156','30152','28960','28871','28740','28739','28738','28505','28487','27570','27241','26972','26537','26536','26534','26533','26530','26529','26468','26045','26010','25849','25162','25018','24990','24989','24988','24987','24986','24985','24939','24696','23811','23531','23530','23432','23431','23430','23429','23428','23013','23012','22567','19772','17709','17708','17707','17567','16450','15999','15648','15067','15049','15048','13548','12243','10721','10720','10719','10718','10717','10716','10715','10714','10713','10712','10711','10710','10709','10708','10707','10706','10705','10704','10703','10702','10701','107','10699','10698','10697','10696','10695','10688','10687','10686','10685','10684','10683','10682','10681','10680','10679','10678','10677','10676','10675','10674','10673')
 order by name
+
+
+
+
+select
+	i.entry,
+	i.name,
+	i.class as tipo,
+	i.subclass as material,
+	i.InventoryType as slot,
+	case i.stat_type1
+		when '3' then 'agi'
+		when '4' then 'str'
+		when '5' then 'int'
+		when '6' then 'spi'
+		when '7' then 'sta'
+		else i.stat_type1
+	end as stat1,
+	i.stat_value1,
+	case i.stat_type2
+		when '3' then 'agi'
+		when '4' then 'str'
+		when '5' then 'int'
+		when '6' then 'spi'
+		when '7' then 'sta'
+		else i.stat_type2
+	end as stat2,
+	i.stat_value2,
+	case i.stat_type3
+		when '3' then 'agi'
+		when '4' then 'str'
+		when '5' then 'int'
+		when '6' then 'spi'
+		when '7' then 'sta'
+		else i.stat_type3
+	end as stat3,
+	i.stat_value3,
+	case i.stat_type4
+		when '3' then 'agi'
+		when '4' then 'str'
+		when '5' then 'int'
+		when '6' then 'spi'
+		when '7' then 'sta'
+		else i.stat_type4
+	end as stat4,
+	i.stat_value4,
+	case i.stat_type5
+		when '3' then 'agi'
+		when '4' then 'str'
+		when '5' then 'int'
+		when '6' then 'spi'
+		when '7' then 'sta'
+		else i.stat_type5
+	end as stat5,
+	i.stat_value5,
+	case s1.effectapplyauraname1
+		when '13' then 'heal'
+		when '135' then 'heal'
+		when '85' then 'mp5'
+		when '55' then 'hit'
+		when '71' then 'crit'
+		else s1.effectapplyauraname1
+	end as s1,
+	s1.effectbasepoints1 +1,
+	case s2.effectapplyauraname1
+		when '13' then 'heal'
+		when '135' then 'heal'
+		when '85' then 'mp5'
+		when '55' then 'hit'
+		when '71' then 'crit'
+		else s2.effectapplyauraname1
+	end as s2,
+	s2.effectbasepoints1 +1,
+	case s3.effectapplyauraname1
+		when '13' then 'heal'
+		when '135' then 'heal'
+		when '85' then 'mp5'
+		when '55' then 'hit'
+		when '71' then 'crit'
+		else s3.effectapplyauraname1
+	end as s3,
+	s3.effectbasepoints1 +1
+from
+	item_template i
+	left join spell_template s1 on i.spellid_1 = s1.id
+	left join spell_template s2 on i.spellid_2 = s2.id
+	left join spell_template s3 on i.spellid_3 = s3.id
+where
+	(i.class in ('2','4'))
+	and (s1.effectapplyauraname1 in ('13','135') or s1.effectapplyauraname1 = '85')
+order by cast(i.class as integer), cast(i.InventoryType as integer), cast(i.subclass as integer)
