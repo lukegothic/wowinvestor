@@ -11,8 +11,8 @@ with open(filepath) as f:
     data = f.read()
 
 reHro = '\[\"history\"\] = {(.*?)}'
-m = re.search(reHro, data, re.DOTALL)
-content = m.groups(0)[0].replace("\n", "").replace("\t", "")
+m = re.findall(reHro, data, re.DOTALL)
+content = m[1].replace("\n", "").replace("\t", "")
 content = content.split(",")
 reKey = '\[\"(\d*):(\d*)\"\]'
 reValue = '\"(.*)\"'
