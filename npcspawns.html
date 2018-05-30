@@ -31,7 +31,6 @@
     });
     var bounds = [[-17066,-17066], [17066,17066]];
     var image = L.imageOverlay('WorldmapOfWarcraft_RC3_sqr.jpg', bounds).addTo(map);
-    map.fitBounds(bounds);
     // x,y
     // invertir la Y siempre
     // ¿por que tengo que hacer esto?
@@ -41,6 +40,7 @@
     L.marker([-6147.18+m0fx,3413.65+m0fy]).addTo(map).bindPopup('berserker');
     L.marker([-6494.85+m0fx,3218.53+m0fy]).addTo(map).bindPopup('shadow hunter');
     */
+    map.fitBounds(bounds);
   </script>
   <script>
     var adj = [{"x":9550,"y":8050}, {"x":4100,"y":-10650}];
@@ -53,7 +53,13 @@
       for (var s = 0, spawn = spawns[s]; s < spawns.length; spawn = spawns[++s]) {
         markers.addLayer(marker(parseInt(spawn["map"]),parseInt(spawn["position_x"]),parseInt(spawn["position_y"]))).addTo(map);
       }
-      map.fitBounds(markers.getBounds());
+      /*
+      if (markers.getLayers().length > 1) {
+        map.fitBounds(markers.getBounds());
+      } else {
+        map.flyTo(markers.getLayers()[0].getCenter());
+      }
+      */
     }
     var oReq = new XMLHttpRequest();
     oReq.addEventListener("load", function() {
@@ -63,10 +69,12 @@
         (function() {
           var npc = npcs[n];
           var li = document.createElement("li");
-          li.innerHTML = npc["Name"];
-          li.addEventListener("click", function() {
-            loadCreatureSpawns(npc["spawns"]);
-          });
+          li.innerHTML = npc["Name"] + " (" + npc["spawns"].length + ")";
+          if (npc["spawns"].find(function(s) { return ["0","1"].indexOf(s["map"]) !== -1; })) {
+            li.addEventListener("click", function() {
+              loadCreatureSpawns(npc["spawns"]);
+            });
+          }
           clist.appendChild(li)
         })();
       }

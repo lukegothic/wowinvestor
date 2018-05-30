@@ -9,16 +9,18 @@ order by cast(ah.price as numeric) desc
 select i.name, ah.price from item_template i left join item_ahprices ah on i.entry = ah.entry where class = '7' and subclass = '9'
 order by cast(ah.price as numeric) desc
 
+-- profit criaturas
 select
 	c.entry,
 	c.name,
 	c.maxlevel,
-	sum(loot.ChanceOrQuestChance * case when loot.minCountOrRef + loot.maxcount < 0 then 0 else loot.minCountOrRef + loot.maxcount end / 2 * cast((case when ah.price is not null then ah.price else i.sellprice end) as integer))/100 as wealth
+	sum(loot.ChanceOrQuestChance * case when loot.minCountOrRef + loot.maxcount < 0 then 0 else loot.minCountOrRef + loot.maxcount end / 2 * cast((case when ah.price is not null and i.quality <> '0' then ah.price else i.sellprice end) as integer))/100 as wealth
 	from creature_template c
 	left join creature_loot_template loot on c.entry = loot.entry
 	inner join item_template i on loot.item = i.entry
-	left join item_ahprices ah on i.entry = ah.entry
+	left join luke_item_ahprices ah on i.entry = ah.entry
 where c.rank = '0' group by c.entry order by wealth desc
+
 
 -- criaturas que dropean x
 select c.entry, c.name, c.maxlevel, loot.ChanceOrQuestChance, loot.minCountOrRef, loot.maxcount from creature_template c left join creature_loot_template loot on c.entry = loot.entry inner join item_template i on loot.item = i.entry
@@ -189,3 +191,25 @@ where
 	(i.class in ('2','4'))
 	and (s1.effectapplyauraname1 in ('13','135') or s1.effectapplyauraname1 = '85')
 order by cast(i.class as integer), cast(i.InventoryType as integer), cast(i.subclass as integer)
+
+
+
+
+
+
+-- COSTE PROFESIONES
+select p.quantity,i.name,ah.price,p.quantity*ah.price as total
+from luke_profession_training p
+left join luke_item_ahprices ah on p.item = ah.entry
+left join item_template i on p.item = i.entry
+where prof = 333
+
+-- herbs
+select i.name,ah.price from item_template i
+left join luke_item_ahprices ah on i.entry = ah.entry
+where class='7' and subclass='9'
+
+--ore
+select i.name,ah.price from item_template i
+left join luke_item_ahprices ah on i.entry = ah.entry
+where class='7' and name like'% Ore'
