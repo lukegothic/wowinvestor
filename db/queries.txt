@@ -213,3 +213,12 @@ where class='7' and subclass='9'
 select i.name,ah.price from item_template i
 left join luke_item_ahprices ah on i.entry = ah.entry
 where class='7' and name like'% Ore'
+
+-- que items dropean un objeto con cierto chance? y no elites
+select count(*) as n,c.minlevel lvl, c.name,chanceorquestchance * cast(mincountorref+maxcount as decimal)/2.0/100.0 as valor
+from creature_loot_template loot
+left join creature_template c on loot.entry = c.entry
+left join creature spawn on spawn.id = c.entry
+where item = '4338' and valor > 0.3 and rank = '0'
+group by c.entry
+order by cast(lvl as integer) desc, valor desc
