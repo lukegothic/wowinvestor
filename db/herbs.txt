@@ -1,0 +1,27 @@
+peacebloom,silverleaf,bruiseweed,liferoot,kingsblood,arthas
+1  silver
+1  bruise
+1  life
+1  kings
+1  arthas
+3  golden
+4  mage
+5  strangle
+5  kagdar
+5  sungr
+7  briat
+7  fade
+10 icecap
+10 mss
+12 gold
+14 wild
+15 dream
+20 plague
+20 grave
+21 black lotus
+23 swift
+24 gromsb
+25 purple lotus
+30 blind
+45 ghost mushroom
+55 firebloom

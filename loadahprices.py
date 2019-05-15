@@ -4,6 +4,9 @@ from tkinter import filedialog
 import sqlite3
 import utils
 
+# Abrir archivo aux-addon.lua del directorio del wow
+# D:\Juegos\RetroWoW 1.12.1\WTF\Account\luke\SavedVariables (o similar)
+
 root = tk.Tk()
 root.withdraw()
 filepath = filedialog.askopenfilename()
@@ -12,7 +15,7 @@ with open(filepath) as f:
 
 reHro = '\[\"history\"\] = {(.*?)}'
 m = re.findall(reHro, data, re.DOTALL)
-content = m[1].replace("\n", "").replace("\t", "")
+content = m[0].replace("\n", "").replace("\t", "")
 content = content.split(",")
 reKey = '\[\"(\d*):(\d*)\"\]'
 reValue = '\"(.*)\"'
