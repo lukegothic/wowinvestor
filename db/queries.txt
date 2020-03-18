@@ -1,12 +1,12 @@
 /*
-select i.name, ah.price from item_template i left join item_ahprices ah on i.entry = ah.entry
+select i.name, ah.price from item_template i left join luke_item_ahprices ah on i.entry = ah.entry
 order by cast(ah.price as integer) desc
 */
 
-select i.name, ah.price from item_template i left join item_ahprices ah on i.entry = ah.entry where class = '0' and subclass in ('1','2','3')
+select i.name, ah.price from item_template i left join luke_item_ahprices ah on i.entry = ah.entry where class = '0' and subclass in ('1','2','3')
 order by cast(ah.price as numeric) desc
 
-select i.name, ah.price from item_template i left join item_ahprices ah on i.entry = ah.entry where class = '7' and subclass = '9'
+select i.name, ah.price from item_template i left join luke_item_ahprices ah on i.entry = ah.entry where class = '7' and subclass = '9'
 order by cast(ah.price as numeric) desc
 
 -- profit criaturas
